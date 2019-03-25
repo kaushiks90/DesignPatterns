@@ -1,0 +1,16 @@
+Intent:
+High-level modules should not depend on low-level modules. Both should depend on abstractions.
+Abstractions should not depend on details. Details should depend on abstractions.
+
+Definition:
+When we design software applications we can consider the low level classes the classes which 
+implement basic and primary operations(disk access, network protocols,...)
+ and high level classes the classes which encapsulate complex logic(business flows, ...). 
+ What happens if we need to replace a low level class?
+
+Let's take the classical example of a copy module which reads characters from the keyboard and writes them to the printer device. 
+The high level class containing the logic is the Copy class. The low level classes are KeyboardReader and PrinterWriter.
+
+According to this principle the way of designing a class structure is to start from high level modules to the low level modules:
+High Level Classes --> Abstraction Layer --> Low Level Classes
+
