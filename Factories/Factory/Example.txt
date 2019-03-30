@@ -1,0 +1,63 @@
+using System;
+
+namespace ConsoleApp
+{
+    internal class Program
+    {
+        private static void Main(string[] args)
+        {
+            NewAccountCreation obj = new ConcreteNewAccountCreation();
+            var res=obj.NewAccountType("RA");
+            res.CreateAccount();
+
+            Console.ReadKey();
+        }
+
+    }
+
+   //Product
+   public interface IFactory
+    {
+        void CreateAccount();
+    }
+
+    //Concrete Product
+    public class RetirementAccount : IFactory
+    {
+        public void CreateAccount()
+        {
+            Console.WriteLine("You have created a Retirement Account");
+        }
+    }
+    public class StudentsAccount : IFactory
+    {
+        public void CreateAccount()
+        {
+            Console.WriteLine("You have created a Student Account");
+        }
+    }
+
+    //Creator
+    public abstract class NewAccountCreation
+    {
+        public abstract IFactory NewAccountType(string type);
+    }
+    //Concrete Creator
+    public class ConcreteNewAccountCreation : NewAccountCreation
+    {
+        public override IFactory NewAccountType(string type)
+        {
+            switch (type)
+            {
+                case "RA":
+                    return new RetirementAccount();
+                case "SA":
+                    return new StudentsAccount();
+                default:
+                    throw new NotImplementedException();
+            }
+        }
+    }
+
+
+}

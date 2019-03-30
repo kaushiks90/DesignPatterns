@@ -1,0 +1,149 @@
+using System;
+
+namespace ConsoleApp
+{
+    internal class Program
+    {
+        private static void Main(string[] args)
+        {
+            IVehicleFactory IVehicleFactory = new HeroFactory();
+            VehicleClient v = new VehicleClient(IVehicleFactory, "regular");
+            Console.WriteLine(v.GetBikeName());
+            Console.WriteLine(v.GetScooterName());
+            Console.ReadKey();
+        }
+
+    }
+
+    //Product
+    internal interface IBike
+    {
+        string Name();
+    }
+
+    internal interface IScooter
+    {
+        string Name();
+    }
+
+    //Concrete Product
+
+    internal class RegularBike : IBike
+    {
+        public string Name()
+        {
+            return "Regular Bike";
+        }
+    }
+
+    internal class SportsBike : IBike
+    {
+        public string Name()
+        {
+            return "Sports Bike";
+        }
+    }
+
+    internal class RegularScooter : IScooter
+    {
+        public string Name()
+        {
+            return "Regular Scooter";
+        }
+    }
+
+    internal class Scooty : IScooter
+    {
+        public string Name()
+        {
+            return "Scooty";
+        }
+    }
+
+    //Creator
+    internal interface IVehicleFactory
+    {
+        IBike GetBike(string type);
+        IScooter GetScooter(string type);
+    }
+
+    internal class HondaFactory : IVehicleFactory
+    {
+        public IBike GetBike(string type)
+        {
+            switch (type)
+            {
+                case "regular":
+                    return new RegularBike();
+                case "sports":
+                    return new SportsBike();
+                default:
+                    throw new NotImplementedException();
+            }
+        }
+
+        public IScooter GetScooter(string type)
+        {
+            switch (type)
+            {
+                case "regular":
+                    return new RegularScooter();
+                case "sports":
+                    return new Scooty();
+                default:
+                    throw new NotImplementedException();
+            }
+        }
+    }
+
+    internal class HeroFactory : IVehicleFactory
+    {
+        public IBike GetBike(string type)
+        {
+            switch (type)
+            {
+                case "regular":
+                    return new RegularBike();
+                case "sports":
+                    return new SportsBike();
+                default:
+                    throw new NotImplementedException();
+            }
+        }
+
+        public IScooter GetScooter(string type)
+        {
+            switch (type)
+            {
+                case "regular":
+                    return new RegularScooter();
+                case "sports":
+                    return new Scooty();
+                default:
+                    throw new NotImplementedException();
+            }
+        }
+    }
+
+    internal class VehicleClient
+    {
+        IBike bike;
+        IScooter scooter;
+        public VehicleClient(IVehicleFactory IvehicleFactory, string type)
+        {
+            bike = IvehicleFactory.GetBike(type);
+            scooter = IvehicleFactory.GetScooter(type);
+        }
+        public string GetBikeName()
+        {
+            return bike.Name();
+        }
+        public string GetScooterName()
+        {
+            return scooter.Name();
+        }
+    }
+
+}
+
+
