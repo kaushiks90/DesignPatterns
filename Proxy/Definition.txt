@@ -1,0 +1,19 @@
+https://exceptionnotfound.net/proxy-the-daily-design-pattern/
+
+The Proxy pattern provides a surrogate or placeholder object to control access to another, different object.
+ The Proxy object can be used in the same manner as its containing object
+
+ The Participants
+
+The Subject 
+          defines a common interface for the RealSubject and the Proxy such that the Proxy can be used anywhere the RealSubject is expected.
+The RealSubject 
+           defines the concrete object which the Proxy represents.
+The Proxy
+         maintains a reference to the RealSubject and controls access to it. It must implement the same interface as the RealSubject so that the two can be used interchangeably
+
+
+Will I Ever Use This Pattern?
+Probably. If you've ever had a need to change the behavior of an existing object without actually changing the definition of that object, 
+the Proxy pattern can allow you to do that. Further, I can see this being very useful in testing scenarios,
+where you might need to replicate a class's behavior without fully implementing it.

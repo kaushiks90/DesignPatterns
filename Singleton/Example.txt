@@ -16,7 +16,48 @@ namespace ConsoleApp
         }
 
     }
-    //Eager Loading
+    //Singleton Without readonly
+    ---------------------------------------------------------------------------------
+       public class SingleTon
+    {
+        private static SingleTon _instance = null;
+        private static Object obj = new object();
+        private static int count=0;
+        private SingleTon()
+        {
+            count += 1;
+            Console.WriteLine(count);
+        }
+
+        public static SingleTon GetInstance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    lock (obj)
+                    {
+                        if (_instance == null)
+                        {
+                            _instance = new SingleTon();
+
+                        }
+                    }
+                }
+
+                return _instance;
+            }
+        }
+
+        public void PrintDetails()
+        {
+            Console.WriteLine("Details Printed");
+        }
+
+    }
+
+    //Eager Loading  with readonly keyword
+    -------------------------------------------------------------------------------------
     public sealed class Singleton
     {
         public static int count = 0;
@@ -39,7 +80,8 @@ namespace ConsoleApp
             Console.WriteLine("You are in PrintDetails");
         }
     }
-    //Lazy Loading
+    //Lazy Loading with readonly
+    -----------------------------------------------------------------------------------------
     public sealed class Singleton
     {
         public static int count = 0;

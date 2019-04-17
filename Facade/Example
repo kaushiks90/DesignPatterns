@@ -1,0 +1,81 @@
+using System;
+using System.Threading;
+
+namespace ConsoleApp
+{
+    internal class Program
+    {
+        private static void Main(string[] args)
+        {
+            HomeFacade h = new HomeFacade();
+            h.LeaveHomeForOffice();
+            Thread.Sleep(3000);
+            h.ArriveHomeFromOffice();
+            Console.ReadKey();
+        }
+
+    }
+
+    public class HomeFacade
+    {
+        Lights light;
+        MusicSystem musicSystem;
+        Ac ac;
+        public HomeFacade()
+        {
+            light = new Lights();
+            musicSystem = new MusicSystem();
+            ac = new Ac();
+        }
+        public void LeaveHomeForOffice()
+        {
+            light.SwitchOffLights();
+            musicSystem.SwitchOffMusicSystem();
+            ac.SwitchOffAc();
+        }
+        public void ArriveHomeFromOffice()
+        {
+            light.SwitchOnLights();
+            musicSystem.SwitchOnMusicSystem();
+            ac.SwitchOnAc();
+        }
+    }
+    public class Lights
+    {
+        public void SwitchOnLights()
+        {
+            Console.WriteLine("Switched on Lights");
+        }
+        public void SwitchOffLights()
+        {
+            Console.WriteLine("Switched off Lights");
+        }
+    }
+
+    public class MusicSystem
+    {
+        public void SwitchOnMusicSystem()
+        {
+            Console.WriteLine("Switched on MusicSystem");
+        }
+        public void SwitchOffMusicSystem()
+        {
+            Console.WriteLine("Switched off MusicSystem");
+        }
+    }
+
+    public class Ac
+    {
+        public void SwitchOnAc()
+        {
+            Console.WriteLine("Switched on Ac");
+        }
+        public void SwitchOffAc()
+        {
+            Console.WriteLine("Switched off Ac");
+        }
+    }
+
+}
+
+

@@ -1,0 +1,16 @@
+The Observer pattern seeks to allow objects to notify their observers when their internal state changes.
+
+The Participants
+The Subject
+          knows its Observers and provides an interface for attaching or detaching any number of Observer objects.
+The ConcreteSubject 
+         objects store the states of interest to the Observers and are responsible for sending a notification when the ConcreteSubject's state changes.
+The Observer 
+         defines an updating interface for objects that should be notified of changes in a Subject.
+The ConcreteObserver 
+         objects maintain a reference to a ConcreteSubject and implement the Observer updating interface to keep its state consistent with that of the Subject's.
+
+
+Will I Ever Use This Pattern?
+Most likely. This is a fairly common pattern, and the ability to automatically notify dependent objects of a subject's state change is highly desirable in my opinion.
+However, as with all software design patterns.

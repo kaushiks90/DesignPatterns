@@ -1,0 +1,78 @@
+using System;
+using System.Threading;
+
+namespace ConsoleApp
+{
+    internal class Program
+    {
+        private static void Main(string[] args)
+        {
+
+            NewServerProxy proxy = new NewServerProxy();
+            //Manage orders from a table
+            Console.WriteLine("What would you like to order? ");
+            string order = Console.ReadLine();
+            proxy.TakeOrder(order);
+
+            Console.WriteLine("Sure thing!  Here's your " + proxy.DeliverOrder() + ".");
+            Console.WriteLine("How would you like to pay?");
+            string payment = Console.ReadLine();
+            proxy.Processpayment(payment);
+
+
+            Console.ReadKey();
+        }
+
+    }
+   
+    public interface IServer
+    {
+        void TakeOrder(string order);
+        string DeliverOrder();
+
+        void Processpayment(string payment);
+    }
+
+    public class Server : IServer
+    {
+        private string Order;
+        public string DeliverOrder()
+        {
+            return Order;
+        }
+
+        public void Processpayment(string payment)
+        {
+            Console.WriteLine("Server Processes the payment "+payment);
+        }
+
+        public void TakeOrder(string order)
+        {
+            Console.WriteLine("Server takes order "+order);
+            Order = order;
+        }
+    }
+    public class NewServerProxy : IServer
+    {
+        private string Order;
+
+        Server _server = new Server();
+        public string DeliverOrder()
+        {
+            return Order;
+        }
+
+        public void Processpayment(string payment)
+        {
+            _server.Processpayment(payment);
+        }
+
+        public void TakeOrder(string order)
+        {
+            Console.WriteLine("Server takes order " + order);
+            Order = order;
+        }
+    }
+}
+
+

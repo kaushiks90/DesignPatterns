@@ -1,0 +1,15 @@
+Refer
+http://gyanendushekhar.com/2016/08/21/facade-design-pattern-c/
+
+
+The Facade pattern is a simple structure laid over a more complex structure.
+
+The Participants
+The Subsystems 
+            are any classes or objects which implement functionality but can be "wrapped" or "covered" by the Facade to simplify an interface.
+The Facade 
+            is the layer of abstraction above the Subsystems, and knows which Subsystem to delegate appropriate work to.
+
+Will I Ever Need This Pattern?
+All the damn time. Seriously, the Facade pattern is so general that it applies to almost every major app I've worked on, especially 
+those where I couldn't refactor or modify pieces of said apps for various reasons.

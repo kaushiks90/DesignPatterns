@@ -1,0 +1,19 @@
+Singleton is a Creational design pattern in which a class is guaranteed to only ever have exactly one instance, 
+with that instance being globally accessible.
+
+The Participants
+The Singleton 
+            is a class which defines exactly one instance of itself,
+            and that instance is globally accessible.
+
+
+
+Usage of Singleton
+--------------------
+Exception/Information logging
+Connection pool management 
+File management
+Device management such as printer spooling
+Application Configuration management
+Cache management
+And Session based shopping cart are some of the real world usage of singleton design pattern

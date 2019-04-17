@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 
 namespace ConsoleApp
 {
@@ -6,143 +7,146 @@ namespace ConsoleApp
     {
         private static void Main(string[] args)
         {
-            IVehicleFactory IVehicleFactory = new HeroFactory();
-            VehicleClient v = new VehicleClient(IVehicleFactory, "regular");
-            Console.WriteLine(v.GetBikeName());
-            Console.WriteLine(v.GetScooterName());
+            Sbi sbi = new Sbi();
+            BankClient b = new BankClient(sbi, "SNA");
+
+            Console.WriteLine(b.AccountCreated());
+            Console.WriteLine(b.DepositeCreated());
+
+
             Console.ReadKey();
         }
 
     }
-
-    //Product
-    internal interface IBike
+   public interface ICreateAccount
     {
-        string Name();
+        string CreateNewAccount();
+    }
+   public interface ICreateFixedDeposit
+    {
+        string CreateDeposit();
     }
 
-    internal interface IScooter
+    class RetirementAccount : ICreateAccount
     {
-        string Name();
-    }
-
-    //Concrete Product
-
-    internal class RegularBike : IBike
-    {
-        public string Name()
+        public string CreateNewAccount()
         {
-            return "Regular Bike";
+            return "Creates New Retirement Account";
         }
     }
 
-    internal class SportsBike : IBike
+    class StudentAccount : ICreateAccount
     {
-        public string Name()
+        public string CreateNewAccount()
         {
-            return "Sports Bike";
+            return "Created New student Account";
+        }
+    }
+    class FixedDeposit : ICreateFixedDeposit
+    {
+        public string CreateDeposit()
+        {
+           return "Created Fixed";
         }
     }
 
-    internal class RegularScooter : IScooter
+    class RecurringDeposit : ICreateFixedDeposit
     {
-        public string Name()
+        public string CreateDeposit()
         {
-            return "Regular Scooter";
+            return "Created Recurring Deposit";
         }
     }
 
-    internal class Scooty : IScooter
+
+    public interface IBankCreator
     {
-        public string Name()
-        {
-            return "Scooty";
-        }
+        ICreateAccount CreateAccount(string type);
+        ICreateFixedDeposit CreateDeposit(string type);
+
     }
 
-    //Creator
-    internal interface IVehicleFactory
+    public class Sbi : IBankCreator
     {
-        IBike GetBike(string type);
-        IScooter GetScooter(string type);
-    }
-
-    internal class HondaFactory : IVehicleFactory
-    {
-        public IBike GetBike(string type)
+        public ICreateAccount CreateAccount(string type)
         {
             switch (type)
             {
-                case "regular":
-                    return new RegularBike();
-                case "sports":
-                    return new SportsBike();
+                case "SNA":
+                    return new StudentAccount();
+                case "SRNA":
+                    return new RetirementAccount();
                 default:
                     throw new NotImplementedException();
             }
         }
 
-        public IScooter GetScooter(string type)
+        public ICreateFixedDeposit CreateDeposit(string type)
         {
             switch (type)
             {
-                case "regular":
-                    return new RegularScooter();
-                case "sports":
-                    return new Scooty();
-                default:
+                case "SNA":
+                    return new FixedDeposit();
+                case "SRNA":
+                    return new RecurringDeposit();
+                    default:
                     throw new NotImplementedException();
             }
         }
     }
 
-    internal class HeroFactory : IVehicleFactory
+    public class Kotak : IBankCreator
     {
-        public IBike GetBike(string type)
+        public ICreateAccount CreateAccount(string type)
         {
             switch (type)
             {
-                case "regular":
-                    return new RegularBike();
-                case "sports":
-                    return new SportsBike();
+                case "KNA":
+                    return new StudentAccount();
+                case "KRNA":
+                    return new RetirementAccount();
                 default:
                     throw new NotImplementedException();
             }
         }
 
-        public IScooter GetScooter(string type)
+        public ICreateFixedDeposit CreateDeposit(string type)
         {
             switch (type)
             {
-                case "regular":
-                    return new RegularScooter();
-                case "sports":
-                    return new Scooty();
+                case "KNA":
+                    return new FixedDeposit();
+                case "KRNA":
+                    return new RecurringDeposit();
                 default:
                     throw new NotImplementedException();
             }
         }
     }
 
-    internal class VehicleClient
+    public class BankClient
     {
-        IBike bike;
-        IScooter scooter;
-        public VehicleClient(IVehicleFactory IvehicleFactory, string type)
+        ICreateAccount ICreateAccount;
+        ICreateFixedDeposit ICreateFixedDeposit;
+        public BankClient(IBankCreator IBankCreator,string type)
         {
-            bike = IvehicleFactory.GetBike(type);
-            scooter = IvehicleFactory.GetScooter(type);
+            ICreateAccount = IBankCreator.CreateAccount(type);
+            ICreateFixedDeposit = IBankCreator.CreateDeposit(type);
         }
-        public string GetBikeName()
+
+        public string AccountCreated()
         {
-            return bike.Name();
+            return ICreateAccount.CreateNewAccount();
         }
-        public string GetScooterName()
+        public string DepositeCreated()
         {
-            return scooter.Name();
+            return ICreateFixedDeposit.CreateDeposit();
+     
         }
     }
+
+
+
 
 }
 
