@@ -693,11 +693,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\Kaushik\\Desktop\\Folders\\P\\C#\\DesignPatterns\\DesignPatterns.csproj",
+      "projectUniqueName": "C:\\Users\\Kaushik\\Desktop\\Design Pattern\\DesignPatterns\\DesignPatterns.csproj",
       "projectName": "DesignPatterns",
-      "projectPath": "c:\\Users\\Kaushik\\Desktop\\Folders\\P\\C#\\DesignPatterns\\DesignPatterns.csproj",
+      "projectPath": "C:\\Users\\Kaushik\\Desktop\\Design Pattern\\DesignPatterns\\DesignPatterns.csproj",
       "packagesPath": "C:\\Users\\Kaushik\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\Kaushik\\Desktop\\Folders\\P\\C#\\DesignPatterns\\obj\\",
+      "outputPath": "C:\\Users\\Kaushik\\Desktop\\Design Pattern\\DesignPatterns\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
