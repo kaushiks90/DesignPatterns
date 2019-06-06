@@ -5,4 +5,30 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Others\SolidPrinciples\Dependency-Inversion\Example1-After.cs" />
+    <Compile Remove="Others\SolidPrinciples\Dependency-Inversion\Example1-Before.cs" />
+    <Compile Remove="Others\SolidPrinciples\Interface-Segregation\Example1-After.cs" />
+    <Compile Remove="Others\SolidPrinciples\Interface-Segregation\Example1-Before.cs" />
+    <Compile Remove="Others\SolidPrinciples\Liskov-Substitution\Example1-After.cs" />
+    <Compile Remove="Others\SolidPrinciples\Liskov-Substitution\Example1-Before.cs" />
+    <Compile Remove="Others\SolidPrinciples\Open-Closed\Example1-After.cs" />
+    <Compile Remove="Others\SolidPrinciples\Open-Closed\Example1-Before.cs" />
+    <Compile Remove="Others\SolidPrinciples\Single-Responsibility\Example1-After.cs" />
+    <Compile Remove="Others\SolidPrinciples\Single-Responsibility\Example1-Before.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Others\SolidPrinciples\Dependency-Inversion\Example1-After.cs" />
+    <None Include="Others\SolidPrinciples\Dependency-Inversion\Example1-Before.cs" />
+    <None Include="Others\SolidPrinciples\Interface-Segregation\Example1-After.cs" />
+    <None Include="Others\SolidPrinciples\Interface-Segregation\Example1-Before.cs" />
+    <None Include="Others\SolidPrinciples\Liskov-Substitution\Example1-After.cs" />
+    <None Include="Others\SolidPrinciples\Liskov-Substitution\Example1-Before.cs" />
+    <None Include="Others\SolidPrinciples\Open-Closed\Example1-After.cs" />
+    <None Include="Others\SolidPrinciples\Open-Closed\Example1-Before.cs" />
+    <None Include="Others\SolidPrinciples\Single-Responsibility\Example1-After.cs" />
+    <None Include="Others\SolidPrinciples\Single-Responsibility\Example1-Before.cs" />
+  </ItemGroup>
+
 </Project>

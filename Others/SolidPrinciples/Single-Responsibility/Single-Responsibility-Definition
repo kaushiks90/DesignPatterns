@@ -1,8 +1,10 @@
+https://exceptionnotfound.net/simply-solid-the-single-responsibility-principle/
 Intent:
 A class should have only one reason to change.
 
 Definition:
-In this context, a responsibility is considered to be one reason to change. 
+In this context, a responsibility is considered to be one reason to change.
+
 This principle states that if we have 2 reasons to change for a class,
 we have to split the functionality in two classes.
 Each class will handle only one responsibility and

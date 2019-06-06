@@ -7,7 +7,7 @@ Creational pattern gives the program more flexibility in deciding which objects 
 Structural design patterns : This pattern deals with class and object composition.
 In simple words, This pattern focuses on decoupling interface, implementation of classes and its objects. 
 
-Behavioural design patterns : These patterns deal with communication between Classes and objects. 
+Behavioral design patterns : These patterns deal with communication between Classes and objects. 
 
 Creational Patterns
 Abstract Factory	Creates an instance of several families of classes
