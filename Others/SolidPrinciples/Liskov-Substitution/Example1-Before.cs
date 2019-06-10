@@ -7,15 +7,7 @@ using System.Net.Mail;
 
 namespace SolidPrinciples.Liskov.Substitution.Before
 {
-    internal class Program
-    {
-
-        private static void Main()
-        {
-
-        }
-
-    }
+  
     //We'll use the classic Circle-Ellipse problem to demonstrate this principle. 
     //Let's imagine that we need to find the area of any ellipse. 
     //So, we create a class that represents an ellipse:
